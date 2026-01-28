@@ -26,16 +26,43 @@ This repository is built for learners at all levels, especially those following 
 ## 📂 Repository Structure
 
 ```
-/learning
-├── fundamentals/
-├── web-security/
-├── cloud-security/
-├── linux-basics/
-├── networking/
-├── exploit-development/
-├── reverse-engineering/
-├── blue-team/
-└── cheat-sheets/
+LEARNING/
+├── README.md
+
+├── Fundamentals/
+│   ├── Networking.md
+│   ├── Linux-Basics.md
+│   ├── Windows-Basics.md
+│   ├── Security-Concepts.md
+│   └── README.md
+
+├── Web/
+│   ├── HTTP-Basics.md
+│   ├── Auth-Sessions.md
+│   ├── Common-Vulns.md
+│   └── README.md
+
+├── Internal/
+│   ├── AD-Basics.md
+│   ├── Kerberos-Overview.md
+│   ├── SMB-NTLM.md
+│   └── README.md
+
+├── Cloud/
+│   ├── Shared-Responsibility.md
+│   ├── IAM-Basics.md
+│   └── README.md
+
+├── Mobile/
+│   ├── Android-Basics.md
+│   ├── iOS-Basics.md
+│   └── README.md
+
+├── Exploitation/
+│   ├── Memory-Basics.md
+│   ├── BOF-Concepts.md
+│   └── README.md
+
 ```
 
 Each directory contains topic‑focused learning files and exercises.
