@@ -1,4 +1,4 @@
-<p align="center">
+hbg<p align="center">
   <img
     src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=2800&pause=900&color=00E5FF&center=true&vCenter=true&width=1000&lines=FuzzRaiders+Learning+Repository"
     alt="FuzzRaiders — Learning Repository"
