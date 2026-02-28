@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-label="FuzzRaiders GitHub Banner (logo + spinning globe)">
+  <defs>
+    <!-- Background base -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05060C"/>
+      <stop offset="0.55" stop-color="#0A1230"/>
+      <stop offset="1" stop-color="#05060C"/>
+    </linearGradient>
+
+    <!-- Mesh blobs -->
+    <filter id="meshBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+
+    <!-- Subtle dot field -->
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#A9B7FF" opacity="0.10"/>
+    </pattern>
+
+    <!-- Grain -->
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .09 0" result="a"/>
+      <feComposite in="a" in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <!-- Brand accents -->
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6FD4FF"/>
+      <stop offset="0.5" stop-color="#4BACDD"/>
+      <stop offset="1" stop-color="#2A3367"/>
+    </linearGradient>
+
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F2F6FF"/>
+      <stop offset="0.45" stop-color="#6FD4FF"/>
+      <stop offset="1" stop-color="#7A7CFF"/>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Globe shading (gives sphere depth) -->
+    <radialGradient id="sphereShade" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.18"/>
+    </radialGradient>
+
+    <!-- Lock shine -->
+    <linearGradient id="lockShine" x1="-60" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.60"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="420" fill="url(#bg)"/>
+
+  <!-- Mesh blobs (new look: no panels, no circuit UI) -->
+  <g filter="url(#meshBlur)" opacity="0.95">
+    <circle cx="260" cy="220" r="260" fill="#4BACDD" opacity="0.22"/>
+    <circle cx="420" cy="320" r="240" fill="#2A3367" opacity="0.20"/>
+    <circle cx="1220" cy="120" r="320" fill="#6FD4FF" opacity="0.13"/>
+    <circle cx="1420" cy="320" r="280" fill="#7A7CFF" opacity="0.10"/>
+  </g>
+
+  <rect width="1600" height="420" fill="url(#dots)" opacity="0.95"/>
+
+  <!-- Clean diagonal strokes -->
+  <path d="M-60 360 L640 -40" stroke="url(#acc)" stroke-width="10" opacity="0.12"/>
+  <path d="M980 460 L1660 40" stroke="#6FD4FF" stroke-width="6" opacity="0.08"/>
+
+  <!-- Edge accents -->
+  <rect x="0" y="0" width="1600" height="2" fill="url(#acc)" opacity="0.55"/>
+  <rect x="0" y="418" width="1600" height="2" fill="url(#acc)" opacity="0.55"/>
+
+  <!-- =========================
+       LOGO ONLY (no text inside)
+       + SPINNING GLOBE (left→right)
+       ========================= -->
+  <g transform="translate(285 210)">
+    <!-- orbit ring (slow) -->
+    <g filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="26s" repeatCount="indefinite"/>
+      <circle r="138" fill="none" stroke="#6FD4FF" stroke-width="7" opacity="0.90"/>
+      <g fill="#EEF3F8" stroke="#4BACDD" stroke-width="4" opacity="0.95">
+        <circle cx="0" cy="-138" r="11"/>
+        <circle cx="120" cy="69" r="11"/>
+        <circle cx="-120" cy="69" r="11"/>
+      </g>
+    </g>
+
+    <!-- inner ring -->
+    <circle r="112" fill="#E7ECF2" stroke="#2A3367" stroke-width="16" opacity="0.98"/>
+
+    <!-- Globe clip -->
+    <clipPath id="globeClip" clipPathUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="80"/>
+    </clipPath>
+
+    <!-- Globe base + shading -->
+    <g>
+      <circle r="80" fill="url(#sphereShade)" opacity="0.95"/>
+      <circle r="80" fill="none" stroke="#4BACDD" stroke-width="7" opacity="0.95"/>
+    </g>
+
+    <!-- Static latitude lines (stay put) -->
+    <g fill="none" stroke="#4BACDD" stroke-width="6" opacity="0.85">
+      <path d="M-80 -26 A80 42 0 0 0 80 -26"/>
+      <path d="M-80  26 A80 42 0 0 1 80  26"/>
+      <path d="M-80 0 H80"/>
+    </g>
+
+    <!-- Spinning longitudes: Y-axis illusion via animated scaleX (left→right spin) -->
+    <g clip-path="url(#globeClip)">
+      <g opacity="0.92">
+        <animateTransform
+          attributeName="transform"
+          type="scale"
+          values="1 1; 0.12 1; -1 1; -0.12 1; 1 1"
+          dur="6.2s"
+          repeatCount="indefinite"/>
+        <g fill="none" stroke="#4BACDD" stroke-width="6" opacity="0.90">
+          <ellipse rx="24" ry="80"/>
+          <ellipse rx="46" ry="80" opacity="0.78"/>
+          <ellipse rx="66" ry="80" opacity="0.58"/>
+        </g>
+      </g>
+
+      <!-- edge vignette inside globe -->
+      <radialGradient id="innerV" cx="50%" cy="50%" r="65%">
+        <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000000" stop-opacity="0.18"/>
+      </radialGradient>
+      <circle r="80" fill="url(#innerV)"/>
+    </g>
+
+    <!-- Lock (fixed) -->
+    <g transform="translate(0 10)">
+      <!-- shackle -->
+      <path d="M-20 -22 v-11 q0-22 20-22 q20 0 20 22 v11"
+            fill="none" stroke="#4BACDD" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- body -->
+      <rect id="lockBody" x="-44" y="-22" width="88" height="82" rx="16"
+            fill="#FFFFFF" stroke="#4BACDD" stroke-width="9"/>
+      <!-- keyhole -->
+      <circle cx="0" cy="20" r="7" fill="#2A3367" opacity="0.92"/>
+      <path d="M0 28 v16" stroke="#2A3367" stroke-width="6" stroke-linecap="round" opacity="0.92"/>
+
+      <!-- lock shine (clipped to body) -->
+      <clipPath id="lockClip" clipPathUnits="userSpaceOnUse">
+        <rect x="-44" y="-22" width="88" height="82" rx="16"/>
+      </clipPath>
+      <g clip-path="url(#lockClip)">
+        <rect x="-120" y="-30" width="260" height="110" fill="url(#lockShine)" opacity="0.70">
+          <animate attributeName="x" from="-120" to="120" dur="1.9s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+  </g>
+
+  <!-- =========================
+       NEW TEXT LAYOUT (no names/roles)
+       ========================= -->
+  <g>
+    <!-- Big title -->
+    <text x="520" y="195"
+          font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
+          font-size="116"
+          font-weight="950"
+          fill="url(#txt)"
+          letter-spacing="0.5">
+      FuzzRaiders
+    </text>
+
+    <!-- Tagline -->
+    <text x="524" y="232"
+          font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="16"
+          fill="#A9B7FF"
+          opacity="0.95">
+      Offensive Security System • Research • Write-ups • Tools • Review Gates
+    </text>
+
+    <!-- Pill row (safe inside width) -->
+    <g transform="translate(520,256)">
+      <g>
+        <rect x="0" y="0" width="160" height="40" rx="14" fill="#0B1024" opacity="0.72" stroke="#6FD4FF" stroke-opacity="0.16"/>
+        <text x="16" y="26" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#6FD4FF">WRITE-UPS</text>
+      </g>
+      <g transform="translate(174,0)">
+        <rect x="0" y="0" width="150" height="40" rx="14" fill="#0B1024" opacity="0.72" stroke="#6FD4FF" stroke-opacity="0.14"/>
+        <text x="16" y="26" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#D7E2FF">RESEARCH</text>
+      </g>
+      <g transform="translate(338,0)">
+        <rect x="0" y="0" width="130" height="40" rx="14" fill="#0B1024" opacity="0.72" stroke="#6FD4FF" stroke-opacity="0.14"/>
+        <text x="16" y="26" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#D7E2FF">TOOLS</text>
+      </g>
+      <g transform="translate(482,0)">
+        <rect x="0" y="0" width="220" height="40" rx="14" fill="#0B1024" opacity="0.72" stroke="#6FD4FF" stroke-opacity="0.14"/>
+        <text x="16" y="26" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#D7E2FF">SOPs + QA REVIEWS</text>
+      </g>
+    </g>
+
+    <!-- Minimal “execution line” -->
+    <g transform="translate(520,310)">
+      <path d="M0 0 H860" stroke="url(#acc)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+      <text x="0" y="26"
+            font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="13" fill="#D7E2FF" opacity="0.92">
+        docs → labs → evidence → write-ups → tooling → review → publish
+      </text>
+    </g>
+  </g>
+
+  <!-- Grain overlay -->
+  <g filter="url(#grain)">
+    <rect width="1600" height="420" fill="transparent"/>
+  </g>
+</svg>
