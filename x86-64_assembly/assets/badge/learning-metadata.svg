@@ -119,7 +119,7 @@
 
     <g transform="translate(110,520)">
       <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Focus:</text>
-      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">x86-64 Assembly Foundations</text>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">x86-64 Assembly</text>
       <path d="M0 26 H1380" stroke="#A9B7FF" stroke-opacity="0.18" stroke-width="2"/>
     </g>
 
