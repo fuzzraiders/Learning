@@ -2,213 +2,315 @@
 ![metadata](assets/badges/learning-metadata.svg)
 ![division](assets/badges/learning-division.svg)
 
-This write-up explores my journey into x86-64 assembly, with an emphasis on how CPUs execute instructions and developing a foundation in low-level programming. It functions as both a personal record and a guide for beginners.
+👋 Introduction
 
----
+# Hi, I’m _QQQ,_ a proud member of FuzzRaiders.
+
+This is my first write-up, documenting my progress through CS50 Week 1 and my foundation in C programming. It reflects my focus on understanding how computers execute instructions at a low level and building strong programming discipline from the ground up, and I’m happy to share this journey and what I’ve learned so far.
 
 ## 📌 Overview
 
-This tutorial covers the essentials of **x86-64 assembly language**:
+This write-up covers **CS50 Week 1**, where the focus shifts from visual programming to understanding how computers execute instructions at a low level using the C language.
 
-* CPU architecture and registers
-* Memory layout of programs
-* The stack and execution flow
-* Basic instructions and calling conventions
-* System calls and instruction pointer control
+Unlike high-level abstractions, C forces you to confront:
 
-Unlike high-level languages, assembly exposes the **inner workings of computers**, making you understand how instructions are executed step by step.
+- How memory works
+- How code becomes machine instructions
+- Why precision and syntax matter
+- How logic controls execution
 
----
+Because computers operate strictly on defined instructions, even small mistakes in structure or types can break a program.
 
 # In this write-up, we cover
 
-* CPU registers
-* Memory layout
-* The stack
-* Basic assembly instructions
-* Calling conventions
-* System calls
-* Instruction pointer control
+- Computational thinking fundamentals
+- Source code vs machine code
+- Compilation workflow
+- Header files and declarations
+- Variables and static typing
+- Conditionals and logical flow
+- Loops and repetition
+- Functions and abstraction
 
 ---
 
 ## 🛠 Core Concepts & Tools
 
-The following are key tools and concepts:
+The following core components define the C development workflow:
 
 ```
-x86-64 Assembly       → Low-level CPU instructions
-NASM / GAS           → Assembler (turns assembly into machine code)
-gcc / ld             → Compiler and linker
-Terminal             → Program execution
-CPU (RIP, RSP, RAX)  → Registers and execution control
-Binary (0/1)         → Machine-readable instruction format
+C language          → Structured low-level programming
+gcc                 → Compilation into machine code
+stdio.h             → Standard input/output functions
+Terminal            → Program execution
+Binary (0/1)       → CPU-level instruction format
 ```
 
 ---
 
 ## 🧭 Walkthrough
 
-### 1️⃣ CPU Registers
+### 1️⃣ Computational Mindset
 
-Registers are **small, fast storage locations inside the CPU**.
+As emphasized by David J. Malan:
 
-| Register | Description                                 |
-| -------- | ------------------------------------------- |
-| RAX      | Accumulator (return values)                 |
-| RBX      | Base register                               |
-| RCX      | Counter                                     |
-| RDX      | Data register                               |
-| RSI      | Source index                                |
-| RDI      | Destination index                           |
-| RBP      | Base pointer (stack frame)                  |
-| RSP      | Stack pointer                               |
-| R8-R15   | Additional general-purpose registers        |
-| RIP      | Instruction pointer (controls program flow) |
+# “Computers are really just dumb machines.”
 
-> **Exploit Dev Focus:**
-> Controlling **RIP** allows execution hijacking. Stack overflows often manipulate **RSP**.
+Computers:
+
+- Do not think
+- Do not assume
+- Do not interpret intent
+- Only execute what is explicitly written
+
+C makes this reality obvious. Every variable, every type, every instruction must be explicitly defined.
+
+This is where disciplined programming begins.
 
 ---
 
-### 2️⃣ Memory Layout of a Program
+### 2️⃣ Source Code vs Machine Code
 
-A typical program layout:
+C programs start as **source code**, which is human-readable:
 
-* **Text Segment** – executable instructions
-* **Data Segment** – initialized variables
-* **BSS Segment** – uninitialized variables
-* **Heap** – dynamically allocated memory
-* **Stack** – function calls and local variables
+```c
+#include <stdio.h>
 
-```
-High Memory
-+------------+
-|   Stack    |
-+------------+
-|    Heap    |
-+------------+
-|    BSS     |
-+------------+
-|    Data    |
-+------------+
-|    Text    |
-+------------+
-Low Memory
+int main(void)
+{
+    printf("Hello\n");
+    return 0;
+}
 ```
 
+However, CPUs cannot understand this format directly.
+
+They only execute **machine code**, represented in binary:
+
+```
+01010100 01101000 01100101 ...
+```
+
+The transformation process is:
+
+```
+Source Code → Compiler → Machine Code → CPU Execution
+```
+
+Without compilation (using `gcc`), the program cannot run.
+
 ---
 
-### 3️⃣ The Stack
+### 3️⃣ Header Files & Declarations
 
-* LIFO structure for **function calls and local variables**
-* RSP points to the **top of the stack**
-* RBP marks the **base of the current stack frame**
-
-> Stack-based exploits often target **RSP** and **RIP**.
-
----
-
-### 4️⃣ Basic Assembly Instructions
-
-| Instruction   | Description          |
-| ------------- | -------------------- |
-| mov dest, src | Move data            |
-| add dest, src | Add values           |
-| sub dest, src | Subtract values      |
-| push value    | Push onto stack      |
-| pop dest      | Pop from stack       |
-| call address  | Call function        |
-| ret           | Return from function |
+C requires explicit declarations.
 
 Example:
 
-```asm
-mov rax, 1      ; set RAX to 1
-add rax, 2      ; RAX = 3
+```c
+#include <stdio.h>
 ```
 
----
-### 5️⃣ Calling Conventions
+This tells the compiler where functions like:
 
-Defines how **function arguments** are passed and **return values** retrieved:
+- `printf()`
+- `scanf()`
 
-* Linux x86-64 (System V):
+are defined.
 
-  1. RDI – 1st arg
-  2. RSI – 2nd arg
-  3. RDX – 3rd arg
-  4. RCX – 4th arg
-  5. R8  – 5th arg
-  6. R9  – 6th arg
+If omitted, the compiler does not recognize those functions.
 
-* Return value → **RAX**
+This reinforces a core principle:
+
+**The computer only knows what you explicitly tell it.**
 
 ---
 
-### 6️⃣ System Calls
+## 📦 Variables & Data Types
 
-Interface with the OS. Example: exit program in Linux
+### Static Typing
 
-```asm
-mov rax, 60   ; syscall number for exit
-mov rdi, 0    ; exit code 0
-syscall
+C is **statically typed**, meaning every variable must declare its type before use.
+
+Correct:
+
+```c
+int age = 23;
 ```
 
----
+Incorrect:
 
-### 7️⃣ Instruction Pointer Control
-
-* **RIP** stores the **address of the next instruction**
-* Controlling RIP allows manipulation of program flow (used in exploits)
-
----
-
-## 🧩 Example: Hello World (Linux)
-
-```asm
-section .data
-msg db "Hello, world!", 0xA
-len equ $ - msg
-
-section .text
-global _start
-
-_start:
-    mov rax, 1        ; syscall: write
-    mov rdi, 1        ; stdout
-    mov rsi, msg      ; message address
-    mov rdx, len      ; message length
-    syscall
-
-    mov rax, 60       ; syscall: exit
-    xor rdi, rdi      ; status 0
-    syscall
+```c
+age = 23; // Compilation error
 ```
 
----
-
-## What You Learn
-
-* How CPUs execute instructions
-* How memory and registers work
-* How to control program flow with RIP and RSP
-* Low-level view of computation and function calls
+The compiler enforces type discipline at build time.
 
 ---
 
-##  Conclusion
+### Common Data Types
 
-x86-64 Assembly exposes the **inner workings of computers**:
+| Type   | Typical Size | Purpose                   |
+| ------ | ------------ | ------------------------- |
+| char   | 1 byte       | Single character          |
+| bool   | 1 byte       | True / False              |
+| int    | 4 bytes      | Whole numbers             |
+| float  | 4 bytes      | Decimal numbers           |
+| double | 8 bytes      | Higher precision decimals |
 
-* Registers and memory
-* Stack and execution flow
-* Instructions and system calls
+⚠ Exact sizes may vary by architecture.
 
-Mastering these concepts lays the foundation for **reverse engineering, exploit development, and systems programming**.
+Understanding size matters because everything occupies memory.
 
-**“Good exploits come from careful observation, not rushing.”**
+---
+
+## 🔀 Conditionals
+
+Conditionals control decision-making logic.
+
+```c
+int x = 1;
+int y = 2;
+
+if (x > y)
+{
+    printf("x is greater\n");
+}
+else
+{
+    printf("x is NOT greater\n");
+}
+```
+
+Execution flow:
+
+- Evaluate condition
+- If true → execute first block
+- If false → execute `else` block
+
+There is no guessing. Only boolean evaluation.
+
+---
+
+## 🔁 Loops & Repetition
+
+Automation eliminates repetition.
+
+Instead of:
+
+```c
+printf("Hi\n");
+printf("Hi\n");
+printf("Hi\n");
+```
+
+Use structured looping.
+
+---
+
+### While Loop
+
+```c
+int i = 0;
+
+while (i < 3)
+{
+    printf("Hi\n");
+    i++;
+}
+```
+
+Process:
+
+1. Check condition
+2. Execute block
+3. Update variable
+4. Repeat
+
+Stops only when condition becomes false.
+
+---
+
+### For Loop
+
+More compact structure:
+
+```c
+for (int i = 0; i < 3; i++)
+{
+    printf("Hi\n");
+}
+```
+
+Structure:
+
+- Initialization
+- Condition
+- Update
+
+All in one line.
+
+---
+
+## 🧩 Functions & Abstraction
+
+Functions break problems into smaller reusable parts.
+
+Example:
+
+```c
+#include <stdio.h>
+
+void say_hello(void)
+{
+    printf("Hello!\n");
+}
+
+int main(void)
+{
+    say_hello();
+}
+```
+
+Execution order:
+
+- Program starts in `main()`
+- `say_hello()` is called
+- Function executes
+- Control returns to `main()`
+
+This demonstrates abstraction — separating logic into manageable components.
+
+---
+
+## 🧠 What This Week Teaches
+
+- Computers only execute explicit instructions
+- C enforces strict syntax and type rules
+- Compilation bridges human-readable code and binary
+- Memory and data types define program behavior
+- Logic structures determine execution flow
+- Breaking problems into smaller functions simplifies complexity
+
+---
+
+## 📌 Conclusion
+
+CS50 Week 1 introduces programming discipline at a foundational level.
+
+C does not hide how machines operate. It exposes:
+
+- Memory structure
+- Type constraints
+- Execution flow
+- Precision requirements
+
+Individually, these concepts seem simple.
+
+Together, they form the foundation of low-level programming and systems understanding.
+
+# Clear logic, strict structure, zero assumptions.
+
 ![disclaimer](assets/badges/fuzzraiders-disclaimer.svg)
 
 # Author: [QQQ](#)
