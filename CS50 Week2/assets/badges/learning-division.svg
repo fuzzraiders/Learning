@@ -1,0 +1,159 @@
+<svg width="1200" height="160" viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Space-black background -->
+    <radialGradient id="bg" cx="50%" cy="45%" r="95%">
+      <stop offset="0%" stop-color="#050512"/>
+      <stop offset="55%" stop-color="#010108"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Neon brand gradient -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#16ff72"/>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- ====== STAR FIELD (light) ====== -->
+    <symbol id="s"><circle cx="0" cy="0" r="0.9" fill="#ffffff" opacity="0.7"/></symbol>
+
+    <!-- ====== CENTER SAFE AREA (keeps lines away from text) ====== -->
+    <mask id="keepCenterClear">
+      <rect width="1200" height="160" fill="white"/>
+      <!-- black = cut out the area behind the label -->
+      <rect x="390" y="38" width="420" height="84" rx="18" fill="black"/>
+    </mask>
+
+    <!-- ====== MOVING ENERGY (toward center) ====== -->
+    <!-- Left stream fade toward center -->
+    <linearGradient id="leftEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.00"/>
+      <stop offset="20%" stop-color="#00f5ff" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#16ff72" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <!-- Right stream fade toward center -->
+    <linearGradient id="rightEnergy" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.00"/>
+      <stop offset="20%" stop-color="#00f5ff" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#16ff72" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <!-- A thin "comet streak" used multiple times -->
+    <symbol id="streak">
+      <rect x="0" y="0" width="180" height="6" rx="3" fill="url(#neon)" opacity="0.9" filter="url(#softGlow)"/>
+    </symbol>
+
+    <!-- Center badge background -->
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1022" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050814" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="160" rx="24" fill="url(#bg)"/>
+
+  <!-- Stars (subtle) -->
+  <g opacity="0.55">
+    <use href="#s" x="70"  y="35"/><use href="#s" x="130" y="60"/><use href="#s" x="210" y="28"/>
+    <use href="#s" x="320" y="54"/><use href="#s" x="460" y="30"/><use href="#s" x="540" y="62"/>
+    <use href="#s" x="710" y="32"/><use href="#s" x="860" y="56"/><use href="#s" x="980" y="30"/>
+    <use href="#s" x="1120" y="62"/>
+    <use href="#s" x="90"  y="120"/><use href="#s" x="240" y="110"/><use href="#s" x="380" y="130"/>
+    <use href="#s" x="610" y="118"/><use href="#s" x="760" y="128"/><use href="#s" x="920" y="112"/>
+    <use href="#s" x="1080" y="132"/>
+    <animate attributeName="opacity" values="0.35;0.75;0.35" dur="8s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ===================== NEW DIVIDER DESIGN ===================== -->
+  <!-- Two clean rails (top+bottom), with energy pulses moving TOWARD the center.
+       Mask keeps the label area untouched. -->
+
+  <!-- Left rails (static) -->
+  <g mask="url(#keepCenterClear)">
+    <line x1="70" y1="72" x2="580" y2="72" stroke="url(#leftEnergy)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+    <line x1="70" y1="88" x2="580" y2="88" stroke="url(#leftEnergy)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <!-- Right rails (static) -->
+  <g mask="url(#keepCenterClear)">
+    <line x1="620" y1="72" x2="1130" y2="72" stroke="url(#rightEnergy)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+    <line x1="620" y1="88" x2="1130" y2="88" stroke="url(#rightEnergy)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <!-- Left moving pulses (loop, toward center) -->
+  <g mask="url(#keepCenterClear)" opacity="0.95">
+    <!-- pulse 1 -->
+    <use href="#streak" x="70" y="69">
+      <animate attributeName="x" values="70; 420" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/>
+    </use>
+    <use href="#streak" x="70" y="85">
+      <animate attributeName="x" values="70; 420" dur="1.6s" begin="0.35s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.35s" repeatCount="indefinite"/>
+    </use>
+
+    <!-- pulse 2 -->
+    <use href="#streak" x="70" y="69" opacity="0.7">
+      <animate attributeName="x" values="0; 390" dur="2.2s" begin="0.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.2s" begin="0.2s" repeatCount="indefinite"/>
+    </use>
+  </g>
+
+  <!-- Right moving pulses (loop, toward center) -->
+  <g mask="url(#keepCenterClear)" opacity="0.95">
+    <use href="#streak" x="950" y="69">
+      <animate attributeName="x" values="950; 600" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/>
+    </use>
+    <use href="#streak" x="950" y="85">
+      <animate attributeName="x" values="950; 600" dur="1.6s" begin="0.35s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.35s" repeatCount="indefinite"/>
+    </use>
+
+    <use href="#streak" x="1000" y="69" opacity="0.7">
+      <animate attributeName="x" values="1120; 650" dur="2.2s" begin="0.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.9;0" dur="2.2s" begin="0.2s" repeatCount="indefinite"/>
+    </use>
+  </g>
+
+  <!-- Center badge (clean + premium) -->
+  <g filter="url(#softGlow)">
+    <rect x="400" y="46" width="400" height="68" rx="18" fill="url(#badgeBg)" stroke="url(#neon)" stroke-width="1.6" opacity="0.98"/>
+    <!-- micro accent line inside badge -->
+    <rect x="420" y="62" width="360" height="3" rx="2" fill="url(#neon)" opacity="0.85">
+      <animate attributeName="opacity" values="0.35;0.95;0.35" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+
+    <text x="600" y="92" text-anchor="middle"
+          fill="url(#neon)"
+          font-family="Fira Code, monospace"
+          font-size="26"
+          font-weight="900"
+          letter-spacing="1.2"
+          filter="url(#glow)">
+      FuzzRaiders Learning
+      <animate attributeName="opacity" values="0.85;1;0.85" dur="2.4s" repeatCount="indefinite"/>
+    </text>
+  </g>
+</svg>

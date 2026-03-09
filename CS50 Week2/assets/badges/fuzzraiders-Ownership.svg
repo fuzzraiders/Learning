@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" role="img" aria-label="FuzzRaiders Ownership &amp; Attribution Notice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0a1a2a"/>
+      <stop offset="100%" stop-color="#05070d"/>
+      <animate attributeName="x1" values="0;1;0" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="y1" values="0;1;0" dur="12s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="35%" stop-color="#60a5fa"/>
+      <stop offset="70%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+      <animate attributeName="x1" values="0;1;0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;0;1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+
+    <filter id="textGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+
+    <clipPath id="clipLine">
+      <rect x="60" y="62" width="1080" height="12" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="240" fill="url(#bg)"/>
+  <rect width="1200" height="240" fill="url(#grid)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -44 44; 0 0" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Card -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="24" width="1120" height="192" rx="22" fill="#0b1222" fill-opacity="0.82" stroke="#334155" stroke-opacity="0.35"/>
+  </g>
+
+  <!-- Animated accent line -->
+  <g clip-path="url(#clipLine)">
+    <rect x="60" y="62" width="1080" height="12" rx="6" fill="url(#accent)">
+      <animateTransform attributeName="transform" type="translate" values="-240 0; 240 0; -240 0" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Single icon (shield) -->
+  <g transform="translate(70,90)">
+    <rect x="0" y="0" width="78" height="78" rx="18" fill="#0b1222" stroke="#334155" stroke-opacity="0.55"/>
+    <path d="M39 12l22 8v18c0 18-13 33-22 38C30 71 17 56 17 38V20l22-8z"
+          fill="none" stroke="url(#accent)" stroke-width="2.6"/>
+    <path d="M28 40l7 7 16-18" fill="none" stroke="#22c55e" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="stroke-opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
+    </path>
+    <rect x="0" y="0" width="78" height="78" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.22">
+      <animate attributeName="opacity" values="0.12;0.5;0.12" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Title -->
+  <text x="170" y="118"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans"
+        font-size="28" font-weight="800" fill="#e2e8f0" filter="url(#textGlow)">
+    Ownership &amp; Attribution Notice
+  </text>
+
+  <!-- Body -->
+  <text x="170" y="146"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans"
+        font-size="15.5" fill="#cbd5e1" opacity="0.95">
+    <tspan x="170" dy="0">This is produced under the FuzzRaiders training/research program.</tspan>
+    <tspan x="170" dy="22">FuzzRaiders maintains methodology, structure, and publication of this document.</tspan>
+    <tspan x="170" dy="22">Attribution may include current and/or former collaborators and does not imply membership.</tspan>
+    <tspan x="170" dy="22">For official contact and validation, refer only to FuzzRaiders channels.</tspan>
+  </text>
+
+  <!-- Bottom-right maintainer -->
+  <text x="1140" y="200" text-anchor="end"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans"
+        font-size="13" font-weight="700" fill="#94a3b8" opacity="0.95">
+    Maintained by FuzzRaiders
+  </text>
+</svg>
