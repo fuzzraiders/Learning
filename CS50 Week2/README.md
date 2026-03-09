@@ -170,7 +170,7 @@ RAM is:
 We can imagine RAM as a **large grid of tiny storage locations**, where each square represents **one byte**.
 
 <p align="center">
-  <img src="images/ram-grid.png" width="700">
+  <img src="file:///home/Obania_iguro/Pictures/photo%20memory.webp" width="700">
 </p>
 
 Different data types occupy different numbers of bytes.
