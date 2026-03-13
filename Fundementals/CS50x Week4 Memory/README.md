@@ -37,11 +37,11 @@ These concepts are fundamental because they explain **how programs store, access
 3. [Pointers](#3️⃣-pointers)
 4. [Pointer Arithmetic](#4️⃣-pointer-arithmetic)
 5. [Strings](#5️⃣-strings)
-6. [Copying Strings & `malloc`](#6️⃣-copying-strings--malloc)
+6. [Copying Strings & malloc](#6️⃣-copying-strings--malloc)
 7. [Valgrind](#7️⃣-valgrind)
 8. [Garbage Values](#8️⃣-garbage-values)
 9. [Overflow](#9️⃣-overflow)
-10. [`scanf`](#🔟-scanf)
+10. [scanf](#🔟-scanf)
 11. [What This Week Teaches](#-what-this-week-teaches)
 12. [Conclusion](#-conclusion)
 
