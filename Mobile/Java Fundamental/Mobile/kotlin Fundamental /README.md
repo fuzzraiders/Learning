@@ -275,8 +275,9 @@ Understanding Kotlin fundamentals helps developers write **cleaner, safer, and m
 
 Like all programming skills, mastery comes through **consistent practice and building real projects**.
 
----
+![disclaimer](assets/badges/fuzzraiders-disclaimer.svg)
 
-**Author:** Mysto
-**Role:** Web Security
-**Learning Path:** Programming Foundations for Security Engineers
+# Author:[Mysto](https://www.linkedin.com/in/moussa-mohamed-1a15a536b/)
+
+![Ownership](assets/badges/fuzzraiders-Ownership.svg)
+
