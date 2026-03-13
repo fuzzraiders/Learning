@@ -169,7 +169,7 @@ Memory is where **all the program's data lives while it runs**.
 * Imagine RAM as a **giant grid of tiny boxes**.
 
 
-![image](/CS50x%20Week4%20Memory/assets/memory%20visu.png)
+![image](assets/memory%20visu.png)
 
 
 * Each box is **1 byte**, capable of holding a smal
@@ -281,7 +281,7 @@ n → 0x123
 int *p = &n;
 ```
 
-![image](/CS50x%20Week4%20Memory/assets/Pointer1.png)
+![image](assets/Pointer1.png)
 
 Here:
 
@@ -291,7 +291,7 @@ Here:
 
 So the pointer `p` stores the **memory address of n**.
 
-![image](/CS50x%20Week4%20Memory/assets/Pointer.png)
+![image](assets/Pointer.png)
 
 ---
 
@@ -401,7 +401,7 @@ char name[] = "Emma";
 
 In memory this looks like:
 
-![image](/CS50x%20Week4%20Memory/assets/string1.png)
+![image](assets/string1.png)
 
 The last character `\0` is called the **null terminator**, which tells the program **where the string ends**.
 
@@ -433,7 +433,7 @@ char *t = s;
 
 **You can visualize the above code as follows:**
 
-![image](/CS50x%20Week4%20Memory/assets/copy&malloc.png)
+![image](assets/copy&malloc.png)
 
 
 
