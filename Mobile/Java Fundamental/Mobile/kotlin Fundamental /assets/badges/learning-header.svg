@@ -1,0 +1,277 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FuzzRaiders Learning Banner (animated)">
+  <defs>
+    <!-- Space black background -->
+    <radialGradient id="spaceBg" cx="40%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#060616"/>
+      <stop offset="45%" stop-color="#02020a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Neon gradient -->
+    <linearGradient id="neonFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#16ff72"/>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Star symbols -->
+    <symbol id="starTiny"><circle cx="0" cy="0" r="0.8" fill="#ffffff"/></symbol>
+    <symbol id="starSmall"><circle cx="0" cy="0" r="1.1" fill="#ffffff" opacity="0.9"/></symbol>
+    <symbol id="starBright"><circle cx="0" cy="0" r="2.4" fill="#ffffff" opacity="0.95"/></symbol>
+
+    <symbol id="starNeonCyan"><circle cx="0" cy="0" r="2.0" fill="#00f5ff" opacity="0.85"/></symbol>
+    <symbol id="starNeonViolet"><circle cx="0" cy="0" r="2.0" fill="#8b5cf6" opacity="0.8"/></symbol>
+    <symbol id="starNeonGreen"><circle cx="0" cy="0" r="2.0" fill="#16ff72" opacity="0.75"/></symbol>
+
+    <!-- Rounded-rect path for looping border beam -->
+    <path id="borderPath" d="
+      M 24 10
+      H 1176
+      Q 1190 10 1190 24
+      V 296
+      Q 1190 310 1176 310
+      H 24
+      Q 10 310 10 296
+      V 24
+      Q 10 10 24 10
+      Z" />
+
+    <!-- Beam head glow -->
+    <filter id="beamGlow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Brand panel stroke -->
+    <linearGradient id="panelStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f5ff" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#8b5cf6" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#16ff72" stop-opacity="0.20"/>
+    </linearGradient>
+
+    <!-- Logo sphere depth -->
+    <radialGradient id="sphereShade" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.24"/>
+    </radialGradient>
+
+    <!-- Inner vignette -->
+    <radialGradient id="innerV" cx="50%" cy="50%" r="65%">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.20"/>
+    </radialGradient>
+
+    <!-- Globe clip -->
+    <clipPath id="globeClip" clipPathUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="46"/>
+    </clipPath>
+
+    <!-- Lock shine -->
+    <linearGradient id="lockShine" x1="-120" y1="0" x2="220" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="320" rx="24" fill="url(#spaceBg)"/>
+
+  <!-- ================== STARFIELD ================== -->
+  <g opacity="0.6">
+    <g>
+      <use href="#starTiny" x="34" y="40"/><use href="#starTiny" x="88" y="22"/><use href="#starTiny" x="140" y="70"/>
+      <use href="#starTiny" x="190" y="28"/><use href="#starTiny" x="240" y="52"/><use href="#starTiny" x="310" y="18"/>
+      <use href="#starTiny" x="360" y="76"/><use href="#starTiny" x="420" y="34"/><use href="#starTiny" x="470" y="58"/>
+      <use href="#starTiny" x="530" y="20"/><use href="#starTiny" x="590" y="64"/><use href="#starTiny" x="650" y="30"/>
+      <use href="#starTiny" x="710" y="82"/><use href="#starTiny" x="770" y="42"/><use href="#starTiny" x="830" y="24"/>
+      <use href="#starTiny" x="900" y="70"/><use href="#starTiny" x="960" y="36"/><use href="#starTiny" x="1030" y="58"/>
+      <use href="#starTiny" x="1100" y="26"/><use href="#starTiny" x="1160" y="74"/>
+      <use href="#starTiny" x="60" y="120"/><use href="#starTiny" x="120" y="150"/><use href="#starTiny" x="170" y="132"/>
+      <use href="#starTiny" x="230" y="110"/><use href="#starTiny" x="280" y="170"/><use href="#starTiny" x="340" y="128"/>
+      <use href="#starTiny" x="390" y="158"/><use href="#starTiny" x="450" y="120"/><use href="#starTiny" x="510" y="148"/>
+      <use href="#starTiny" x="580" y="112"/><use href="#starTiny" x="640" y="166"/><use href="#starTiny" x="700" y="132"/>
+      <use href="#starTiny" x="760" y="156"/><use href="#starTiny" x="820" y="118"/><use href="#starTiny" x="880" y="146"/>
+      <use href="#starTiny" x="940" y="112"/><use href="#starTiny" x="1010" y="156"/><use href="#starTiny" x="1070" y="128"/>
+      <use href="#starTiny" x="1140" y="150"/>
+      <use href="#starTiny" x="40" y="250"/><use href="#starTiny" x="110" y="230"/><use href="#starTiny" x="170" y="272"/>
+      <use href="#starTiny" x="240" y="240"/><use href="#starTiny" x="300" y="270"/><use href="#starTiny" x="360" y="232"/>
+      <use href="#starTiny" x="420" y="268"/><use href="#starTiny" x="490" y="238"/><use href="#starTiny" x="550" y="272"/>
+      <use href="#starTiny" x="610" y="238"/><use href="#starTiny" x="680" y="268"/><use href="#starTiny" x="740" y="236"/>
+      <use href="#starTiny" x="800" y="272"/><use href="#starTiny" x="870" y="240"/><use href="#starTiny" x="930" y="270"/>
+      <use href="#starTiny" x="990" y="236"/><use href="#starTiny" x="1060" y="268"/><use href="#starTiny" x="1120" y="238"/>
+      <use href="#starTiny" x="1180" y="270"/>
+    </g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; -18 8; 0 0" dur="26s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.45;0.85;0.45" dur="7.8s" repeatCount="indefinite"/>
+  </g>
+
+  <g opacity="0.85">
+    <g>
+      <use href="#starSmall" x="90" y="90"/><use href="#starSmall" x="210" y="62"/><use href="#starSmall" x="330" y="98"/>
+      <use href="#starSmall" x="520" y="86"/><use href="#starSmall" x="680" y="72"/><use href="#starSmall" x="860" y="96"/>
+      <use href="#starSmall" x="1040" y="84"/><use href="#starSmall" x="1140" y="108"/>
+      <use href="#starSmall" x="150" y="210"/><use href="#starSmall" x="310" y="190"/><use href="#starSmall" x="470" y="220"/>
+      <use href="#starSmall" x="630" y="196"/><use href="#starSmall" x="790" y="214"/><use href="#starSmall" x="970" y="202"/>
+    </g>
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="6.4s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 16 -6; 0 0" dur="30s" repeatCount="indefinite"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <use href="#starBright" x="120" y="48"><animate attributeName="opacity" values="0.25;1;0.35" dur="3.2s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="420" y="62"><animate attributeName="opacity" values="0.2;1;0.4" dur="4.6s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="760" y="44"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.8s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="1080" y="58"><animate attributeName="opacity" values="0.15;1;0.35" dur="5.1s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="250" y="150"><animate attributeName="opacity" values="0.2;1;0.2" dur="4.0s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="600" y="160"><animate attributeName="opacity" values="0.25;1;0.3" dur="3.4s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="930" y="148"><animate attributeName="opacity" values="0.15;1;0.25" dur="4.9s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="180" y="270"><animate attributeName="opacity" values="0.2;1;0.35" dur="4.4s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="520" y="260"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.7s" repeatCount="indefinite"/></use>
+    <use href="#starBright" x="980" y="270"><animate attributeName="opacity" values="0.1;1;0.3" dur="5.4s" repeatCount="indefinite"/></use>
+  </g>
+
+  <g filter="url(#softGlow)" opacity="0.98">
+    <use href="#starNeonCyan" x="980" y="110"><animate attributeName="opacity" values="0.15;1;0.2" dur="5.8s" repeatCount="indefinite"/></use>
+    <use href="#starNeonViolet" x="360" y="200"><animate attributeName="opacity" values="0.18;1;0.25" dur="6.8s" repeatCount="indefinite"/></use>
+    <use href="#starNeonGreen" x="720" y="230"><animate attributeName="opacity" values="0.12;0.9;0.2" dur="6.2s" repeatCount="indefinite"/></use>
+  </g>
+
+  <!-- Border beam -->
+  <rect x="10" y="10" width="1180" height="300" rx="20" fill="none" stroke="#0b1020" stroke-width="2" opacity="0.9"/>
+  <g filter="url(#beamGlow)">
+    <circle r="6" fill="url(#neonFlow)">
+      <animateMotion dur="6.5s" repeatCount="indefinite" rotate="auto">
+        <mpath href="#borderPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="12" fill="url(#neonFlow)" opacity="0.25">
+      <animateMotion dur="6.5s" repeatCount="indefinite" rotate="auto" begin="-0.18s">
+        <mpath href="#borderPath"/>
+      </animateMotion>
+    </circle>
+  </g>
+
+  <!-- Left logo -->
+  <g transform="translate(125 165)">
+    <g filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="22s" repeatCount="indefinite"/>
+      <circle r="70" fill="none" stroke="#00f5ff" stroke-width="5.5" opacity="0.85"/>
+      <g fill="#EEF3F8" stroke="#8b5cf6" stroke-width="3.2" opacity="0.95">
+        <circle cx="0" cy="-70" r="6.5"/>
+        <circle cx="61" cy="35" r="6.5"/>
+        <circle cx="-61" cy="35" r="6.5"/>
+      </g>
+    </g>
+
+    <circle r="55" fill="#E7ECF2" stroke="#2A3367" stroke-width="10" opacity="0.96"/>
+
+    <g>
+      <circle r="46" fill="url(#sphereShade)" opacity="0.96"/>
+      <circle r="46" fill="none" stroke="#00f5ff" stroke-width="4" opacity="0.85"/>
+      <g fill="none" stroke="#00f5ff" stroke-width="3" opacity="0.62">
+        <path d="M-46 -14 A46 24 0 0 0 46 -14"/>
+        <path d="M-46  14 A46 24 0 0 1 46  14"/>
+        <path d="M-46 0 H46"/>
+      </g>
+
+      <g clip-path="url(#globeClip)" opacity="0.90">
+        <g>
+          <animateTransform attributeName="transform" type="scale"
+            values="1 1; 0.12 1; -1 1; -0.12 1; 1 1" dur="6.0s" repeatCount="indefinite"/>
+          <g fill="none" stroke="#00f5ff" stroke-width="3" opacity="0.78">
+            <ellipse rx="13" ry="46"/>
+            <ellipse rx="24" ry="46" opacity="0.62"/>
+            <ellipse rx="35" ry="46" opacity="0.45"/>
+          </g>
+        </g>
+        <circle r="46" fill="url(#innerV)"/>
+      </g>
+    </g>
+
+    <g transform="translate(0 8)">
+      <path d="M-13 -12 v-8 q0-14 13-14 q13 0 13 14 v8"
+            fill="none" stroke="#00f5ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+      <rect x="-30" y="-12" width="60" height="54" rx="12"
+            fill="#FFFFFF" stroke="#00f5ff" stroke-width="6" opacity="0.96"/>
+      <circle cx="0" cy="14" r="5" fill="#2A3367" opacity="0.92"/>
+      <path d="M0 19 v11" stroke="#2A3367" stroke-width="4.5" stroke-linecap="round" opacity="0.92"/>
+
+      <clipPath id="lockClipLearning" clipPathUnits="userSpaceOnUse">
+        <rect x="-30" y="-12" width="60" height="54" rx="12"/>
+      </clipPath>
+      <g clip-path="url(#lockClipLearning)">
+        <rect x="-120" y="-18" width="240" height="80" fill="url(#lockShine)" opacity="0.62">
+          <animate attributeName="x" from="-120" to="80" dur="1.9s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <text x="235" y="110"
+        fill="url(#neonFlow)"
+        font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace"
+        font-size="44"
+        font-weight="900"
+        filter="url(#glow)">
+    FuzzRaiders — Learning
+  </text>
+
+  <text x="238" y="142"
+        fill="#a5b4fc"
+        font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace"
+        font-size="16"
+        opacity="0.95">
+    Notes • Labs • Discipline • Repetition • Mastery
+  </text>
+
+  <line x1="235" y1="160" x2="1140" y2="160" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Cards UPDATED: Name + Role + Track -->
+  <g>
+    <rect x="235" y="190" width="285" height="58" rx="14" fill="#070b18" stroke="url(#panelStroke)" stroke-width="1.6" opacity="0.96"/>
+    <text x="255" y="214" fill="#00f5ff" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="14">Name</text>
+    <text x="255" y="236" fill="#ffffff" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="13">Mysto</text>
+
+    <rect x="540" y="190" width="285" height="58" rx="14" fill="#070b18" stroke="url(#panelStroke)" stroke-width="1.6" opacity="0.96"/>
+    <text x="560" y="214" fill="#8b5cf6" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="14">Role</text>
+    <text x="560" y="236" fill="#ffffff" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="13">Mobile</text>
+
+    <rect x="845" y="190" width="295" height="58" rx="14" fill="#070b18" stroke="url(#panelStroke)" stroke-width="1.6" opacity="0.96"/>
+    <text x="865" y="214" fill="#16ff72" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="14">Track</text>
+    <text x="865" y="236" fill="#ffffff" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="13">eMAPT</text>
+  </g>
+
+  <!-- Footer command line -->
+  <g opacity="0.92">
+    <text x="235" y="284" fill="#dbeafe" font-family="Fira Code, ui-monospace, Menlo, Consolas, monospace" font-size="13">
+      $ build-skill --daily --track progress --publish clean-notes
+    </text>
+    <rect x="235" y="292" width="370" height="2" fill="url(#neonFlow)" opacity="0.55"/>
+  </g>
+</svg>

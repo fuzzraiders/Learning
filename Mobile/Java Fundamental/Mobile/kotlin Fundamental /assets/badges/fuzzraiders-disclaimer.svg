@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="900" viewBox="0 0 2200 900" role="img" aria-label="FuzzRaiders training statement card (redesigned, fixed text bounds)">
+  <defs>
+    <!-- Background -->
+    <radialGradient id="bg" cx="35%" cy="30%" r="90%">
+      <stop offset="0" stop-color="#0B1232"/>
+      <stop offset="0.55" stop-color="#05060C"/>
+      <stop offset="1" stop-color="#03040A"/>
+    </radialGradient>
+
+    <!-- Card gradient -->
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070A18"/>
+      <stop offset="1" stop-color="#0B1024"/>
+    </linearGradient>
+
+    <!-- Neon accent -->
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00F5FF"/>
+      <stop offset="0.5" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#16FF72"/>
+    </linearGradient>
+
+    <!-- Dot field -->
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#A9B7FF" opacity="0.10"/>
+    </pattern>
+
+    <!-- Grain -->
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .10 0" result="a"/>
+      <feComposite in="a" in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <!-- Soft glow -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Beam glow -->
+    <filter id="beamGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Moving sweep highlight -->
+    <linearGradient id="sweep" x1="-260" y1="0" x2="260" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Card clip for sweep -->
+    <clipPath id="cardClip" clipPathUnits="userSpaceOnUse">
+      <rect x="120" y="190" width="1960" height="660" rx="70"/>
+    </clipPath>
+
+    <!-- Sphere shading -->
+    <radialGradient id="sphereShade" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.24"/>
+    </radialGradient>
+
+    <!-- Inner vignette -->
+    <radialGradient id="innerV" cx="50%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.22"/>
+    </radialGradient>
+
+    <!-- Lock shine -->
+    <linearGradient id="lockShine" x1="-160" y1="0" x2="260" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.60"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Globe clip -->
+    <clipPath id="globeClip" clipPathUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="118"/>
+    </clipPath>
+
+    <!-- TEXT WRAP CLIP (keeps all text inside the card) -->
+    <clipPath id="textClip" clipPathUnits="userSpaceOnUse">
+      <!-- Right-side safe area: starts after logo, ends before card edge -->
+      <rect x="770" y="230" width="1260" height="580" rx="22"/>
+    </clipPath>
+
+    <style>
+      .t { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif; fill:#dbeafe; font-size:40px }
+      .b { font-weight: 950; fill:#ffffff }
+      .m { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#a5b4fc; font-size:22px }
+      .f { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#00f5ff; font-size:30px }
+    </style>
+  </defs>
+
+  <!-- PAGE BG -->
+  <rect width="2200" height="900" fill="url(#bg)"/>
+  <rect width="2200" height="900" fill="url(#dots)" opacity="0.9"/>
+
+  <!-- MAIN CARD -->
+  <g filter="url(#glow)">
+    <rect x="120" y="190" width="1960" height="660" rx="70" fill="url(#cardGrad)" stroke="url(#neon)" stroke-opacity="0.55" stroke-width="3"/>
+  </g>
+
+  <!-- TOP/BOTTOM accent bars -->
+  <rect x="120" y="190" width="1960" height="6" fill="url(#neon)" opacity="0.55"/>
+  <rect x="120" y="844" width="1960" height="6" fill="url(#neon)" opacity="0.35"/>
+
+  <!-- Moving sweep highlight inside card -->
+  <g clip-path="url(#cardClip)" opacity="0.20">
+    <rect x="-420" y="150" width="520" height="820" fill="url(#sweep)">
+      <animate attributeName="x" from="-420" to="2320" dur="3.1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Left: logo cluster -->
+  <g transform="translate(430 520)">
+    <!-- Outer orbit ring + 3 points -->
+    <g filter="url(#beamGlow)">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="26s" repeatCount="indefinite"/>
+      <circle r="220" fill="none" stroke="url(#neon)" stroke-width="6" opacity="0.22"/>
+      <g fill="#EEF3F8" stroke="#8B5CF6" stroke-width="5" opacity="0.92">
+        <circle cx="0" cy="-220" r="12"/>
+        <circle cx="190" cy="110" r="12"/>
+        <circle cx="-190" cy="110" r="12"/>
+      </g>
+    </g>
+
+    <!-- Inner ring -->
+    <circle r="176" fill="#E7ECF2" stroke="#1b2a57" stroke-width="18" opacity="0.96"/>
+
+    <!-- Globe -->
+    <g>
+      <circle r="118" fill="url(#sphereShade)" opacity="0.98"/>
+      <circle r="118" fill="none" stroke="#00f5ff" stroke-width="7" opacity="0.82"/>
+    </g>
+
+    <!-- Static latitudes -->
+    <g fill="none" stroke="#00f5ff" stroke-width="6" opacity="0.52">
+      <path d="M-118 -38 A118 62 0 0 0 118 -38"/>
+      <path d="M-118  38 A118 62 0 0 1 118  38"/>
+      <path d="M-118 0 H118"/>
+    </g>
+
+    <!-- Spinning longitudes -->
+    <g clip-path="url(#globeClip)">
+      <g opacity="0.70">
+        <animateTransform attributeName="transform" type="scale"
+          values="1 1; 0.12 1; -1 1; -0.12 1; 1 1" dur="6.4s" repeatCount="indefinite"/>
+        <g fill="none" stroke="#00f5ff" stroke-width="6" opacity="0.75">
+          <ellipse rx="36" ry="118"/>
+          <ellipse rx="70" ry="118" opacity="0.62"/>
+          <ellipse rx="98" ry="118" opacity="0.44"/>
+        </g>
+      </g>
+      <circle r="118" fill="url(#innerV)"/>
+    </g>
+
+    <!-- Lock -->
+    <g transform="translate(0 18)">
+      <path d="M-30 -30 v-16 q0-32 30-32 q30 0 30 32 v16"
+            fill="none" stroke="#00f5ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+      <rect x="-68" y="-30" width="136" height="124" rx="22"
+            fill="#FFFFFF" stroke="#00f5ff" stroke-width="12" opacity="0.96"/>
+      <circle cx="0" cy="30" r="10" fill="#1b2a57" opacity="0.92"/>
+      <path d="M0 42 v26" stroke="#1b2a57" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+
+      <clipPath id="lockClipCard" clipPathUnits="userSpaceOnUse">
+        <rect x="-68" y="-30" width="136" height="124" rx="22"/>
+      </clipPath>
+      <g clip-path="url(#lockClipCard)">
+        <rect x="-220" y="-44" width="420" height="180" fill="url(#lockShine)" opacity="0.55">
+          <animate attributeName="x" from="-220" to="160" dur="2.0s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: text block (hard-bounded via clipPath + manual line breaks) -->
+  <g clip-path="url(#textClip)">
+    <g transform="translate(790 330)">
+      <text x="0" y="0" class="m">FuzzRaiders • Training &amp; Research System</text>
+      <rect x="0" y="18" width="760" height="3" fill="url(#neon)" opacity="0.55"/>
+
+      <!-- Adjusted line width: no line exceeds safe area -->
+      <text x="0" y="92" class="t">
+        This work is part of <tspan class="b">FuzzRaiders’ structured hands-on training</tspan>
+      </text>
+      <text x="0" y="152" class="t">
+        <tspan class="b">and research program</tspan>, where every lab, project, and technical study
+      </text>
+      <text x="0" y="212" class="t">
+        is formally documented, reviewed, and validated to ensure real-world applicability,
+      </text>
+      <text x="0" y="272" class="t">
+        methodological rigor, and real-world security execution.
+      </text>
+
+      <!-- Must end with Happy hacking -->
+      <text x="0" y="370" class="f" filter="url(#glow)">Happy hacking</text>
+    </g>
+  </g>
+
+  <!-- Grain overlay -->
+  <g filter="url(#grain)">
+    <rect width="2200" height="900" fill="transparent"/>
+  </g>
+</svg>

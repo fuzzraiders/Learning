@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-label="Learning Note (no logo)">
+  <defs>
+    <radialGradient id="bgRad" cx="35%" cy="30%" r="85%">
+      <stop offset="0" stop-color="#0B1232"/>
+      <stop offset="0.55" stop-color="#05060C"/>
+      <stop offset="1" stop-color="#03040A"/>
+    </radialGradient>
+
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00F5FF"/>
+      <stop offset="0.45" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#16FF72"/>
+    </linearGradient>
+
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F2F6FF"/>
+      <stop offset="0.55" stop-color="#8ADFFF"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.25" fill="#A9B7FF" opacity="0.10"/>
+    </pattern>
+
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .10 0" result="a"/>
+      <feComposite in="a" in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="blobBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="78"/>
+    </filter>
+
+    <linearGradient id="sweep" x1="-220" y1="0" x2="220" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.65" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <clipPath id="hdrClip" clipPathUnits="userSpaceOnUse">
+      <rect x="64" y="54" width="1472" height="190" rx="40"/>
+    </clipPath>
+
+    <linearGradient id="cardStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00F5FF" stop-opacity="0.30"/>
+      <stop offset="0.45" stop-color="#8B5CF6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#16FF72" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1600" height="980" fill="url(#bgRad)"/>
+  <g filter="url(#blobBlur)" opacity="0.95">
+    <circle cx="320" cy="210" r="360" fill="#00F5FF" opacity="0.14"/>
+    <circle cx="560" cy="930" r="360" fill="#8B5CF6" opacity="0.12"/>
+    <circle cx="1320" cy="220" r="410" fill="#16FF72" opacity="0.10"/>
+    <circle cx="1420" cy="940" r="380" fill="#7A7CFF" opacity="0.08"/>
+  </g>
+  <rect width="1600" height="980" fill="url(#dots)" opacity="0.95"/>
+
+  <!-- Subtle scan -->
+  <g opacity="0.09">
+    <rect x="-240" y="0" width="220" height="980" fill="url(#acc)" opacity="0.12">
+      <animate attributeName="x" from="-240" to="1600" dur="11.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- HEADER STRIP -->
+  <g filter="url(#glow)">
+    <rect x="64" y="54" width="1472" height="190" rx="40" fill="#070A18" opacity="0.72" stroke="url(#cardStroke)" stroke-width="3"/>
+  </g>
+
+  <!-- Header shimmer -->
+  <g clip-path="url(#hdrClip)" opacity="0.55">
+    <rect x="-320" y="40" width="520" height="230" fill="url(#sweep)">
+      <animate attributeName="x" from="-320" to="1760" dur="2.9s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Header title (learning note remains) -->
+  <text x="110" y="150"
+        font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
+        font-size="96"
+        font-weight="950"
+        fill="url(#txt)"
+        letter-spacing="0.4">
+    Learning Note
+  </text>
+
+  <!-- METADATA CARD -->
+  <g>
+    <rect x="64" y="290" width="1472" height="610" rx="46" fill="#070A18" opacity="0.72" stroke="url(#cardStroke)" stroke-width="3"/>
+    <rect x="64" y="290" width="1472" height="5" fill="url(#acc)" opacity="0.62"/>
+    <rect x="64" y="895" width="1472" height="5" fill="url(#acc)" opacity="0.38"/>
+  </g>
+
+  <!-- Fields -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <g transform="translate(110,406)">
+      <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Topic:</text>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">Kotlin</text>
+      <path d="M0 26 H1380" stroke="#A9B7FF" stroke-opacity="0.18" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(110,520)">
+      <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Focus:</text>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">Kotlin Foundations</text>
+      <path d="M0 26 H1380" stroke="#A9B7FF" stroke-opacity="0.18" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(110,634)">
+      <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Level:</text>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">Foundations</text>
+      <path d="M0 26 H1380" stroke="#A9B7FF" stroke-opacity="0.18" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(110,748)">
+      <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Date:</text>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98">13-03-2026</text>
+      <path d="M0 26 H1380" stroke="#A9B7FF" stroke-opacity="0.18" stroke-width="2"/>
+    </g>
+
+    <!-- Source -->
+    <g transform="translate(110,862)">
+      <text x="0" y="0" font-size="26" fill="#D7E2FF" opacity="0.95">Source:</text>
+      <rect x="182" y="-34" width="1320" height="44" rx="12" fill="#0B1024" opacity="0.35" stroke="#00F5FF" stroke-opacity="0.10"/>
+      <text x="190" y="0" font-size="26" fill="#A9B7FF" opacity="0.98"> course
+      </text>
+    </g>
+  </g>
+
+  <!-- Grain overlay -->
+  <g filter="url(#grain)">
+    <rect width="1600" height="980" fill="transparent"/>
+  </g>
+</svg>
