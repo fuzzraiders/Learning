@@ -36,6 +36,9 @@ These concepts are fundamental for:
 8. [Conditional Statements](#8️⃣-conditional-statements)  
 9. [Loops](#9️⃣-loops)  
 10. [Functions](#🔟-functions)
+
+
+    
 **💡 Question:** Why is understanding assembly important for exploit development compared to high-level programming?
 
 ---
