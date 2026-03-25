@@ -312,8 +312,10 @@ XOR
 
 AND ( ∧ ) → Both must be true (1)
  Think: “I’ll go out only if it’s sunny AND I’m free.”
+
 OR ( ∨ ) → At least one is true (1)
  Think: “I’ll go out if it’s sunny OR I’m free (or both).”
+
 XOR ( ⊕ ) → Exactly one is true, not both
  Think: “I’ll go out if it’s sunny OR I’m free, but not both together.”
 
