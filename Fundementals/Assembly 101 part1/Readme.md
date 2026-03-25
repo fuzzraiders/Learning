@@ -88,7 +88,7 @@ You control every instruction the CPU executes.
 0 1 2 3 4 5 6 7 8 9 A B C D E F
 
 
-![alt text](<assets/Hex & decimal.webp>)
+
 
 
 💡 Hex is commonly used to represent memory addresses.
