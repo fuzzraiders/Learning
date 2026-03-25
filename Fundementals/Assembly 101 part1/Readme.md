@@ -244,23 +244,24 @@ Memory: 34 12
 
 ### Stack (LIFO) — Last-In-First-Out
 
-Top
- ┌───┐
- │ C │  ← Last pushed (removed first)
- ├───┤
- │ B │
- ├───┤
- │ A │  ← First pushed (removed last)
- └───┘
-Bottom
 
-Think of it as punch of plates who are in top of each other as we domenstrate in the following diagram:
+           STACK (LIFO)
+
+        +--------------+   ← Top (High Address)
+        |      C       |   ← Last pushed
+        +--------------+
+        |      B       |
+        +--------------+
+        |      A       |   ← First pushed
+        +--------------+   ← Bottom (Low Address)
+
+        Push → ↑ (adds to top)
+        Pop  → ↓ (removes from top)
+
+
+**Think of it as a stack of plates, as shown in the following image:**
 
 ![alt text](assets/Last-in-first-out.webp)
-
-
-**Push → adds an item on top**
-**Pop  ← removes the top item first**
 
 **💡 Question:** If the stack currently holds A, B, C (C on top) and we push D, which element will be popped first?
 
