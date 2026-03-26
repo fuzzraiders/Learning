@@ -197,7 +197,6 @@ For example:
 * An `int` uses **4 bytes**
 
 This means an integer occupies **four memory cells**, while a character occupies only one.
-/home/Obania_iguro/Learning/Fundementals/CS50x Week4 Memory/assets/cs50Week4 0x prefix.png
 ---
 
 # 📦 Arrays
@@ -233,7 +232,6 @@ houses[4]
 Each element occupies space directly next to the previous one in memory.
 
 Because arrays are contiguous, the computer can efficiently access elements using their **index position**.
-/home/Obania_iguro/Learning/Fundementals/CS50x Week4 Memory/assets/cs50Week4 0x prefix.png
 ---
 
 # 🔤 Strings in C
@@ -248,7 +246,7 @@ Example:
 char name[] = "Alice";
 ```
 
-Internally stored as:![division](assets/b![division](assets/badges/learning-division.svg)adges/learning-division.svg)
+Internally stored as: 
 
 ```
 A | l | i | c | e | \0
@@ -262,9 +260,11 @@ This is why string size is often represented as:
 
 ```
 string → ? bytes
-```/home/Obania_iguro/Learning/Fundementals/CS50x Week4 Memory/assets/cs50Week4 0x prefix.png
 
-The size varies depending on the string length.
+```
+
+
+**The size varies depending on the string length.**
 
 ---
 
