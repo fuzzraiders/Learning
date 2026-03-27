@@ -1,5 +1,6 @@
 
 <div align="left"> <img src="https://img.shields.io/badge/FuzzRaiders_Team_Member-0a66ff?style=flat-square&logo=github" /> <img src="https://img.shields.io/badge/Stager-0f172a?style=flat-square" /> <img src="https://img.shields.io/badge/🎯%20Role-Internal_Penetration_Tester-1e293b?style=flat-square" /> <img src="https://img.shields.io/badge/📜%20Certification-PNPT_(TCM_Security)-334155?style=flat-square" /> <img src="https://img.shields.io/badge/🟢%20Status-Completed-16a34a?style=flat-square" /> </div>
+
 # TCM Security — Capstone: Blackpearl
 
 <div align="left">
