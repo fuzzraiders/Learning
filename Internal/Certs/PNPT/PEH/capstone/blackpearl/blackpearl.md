@@ -71,7 +71,7 @@ Port 53 (DNS) was the critical finding. A DNS service running on a CTF/lab machi
 
 Port 80 returned only the nginx default page — nothing useful at the IP level yet.
 
-![[nmap dirbuster.png]]
+![Nmap Scan Results](./images/nmap%20dirbuster.png)
 
 ---
 
@@ -87,7 +87,7 @@ Viewing the source of `http://172.20.10.4` revealed an HTML comment on line 25:
 
 This disclosed the domain name `blackpearl.tcm` and a username `alek`. Both pieces of information were noted for later use.
 
-![[found user in sourcecode.png]]
+![Domain Found in Source Code](./images/found%20user%20in%20sourcecode.png)
 
 ---
 
@@ -117,7 +117,7 @@ sudo nano /etc/hosts
 # Added: 172.20.10.4    blackpearl.tcm
 ```
 
-![[checked dns ip to domain blackpearl.tcm in hosts.png]]
+![DNS to Domain Mapping](./images/checked%20dns%20ip%20to%20domain%20blackpearl.tcm%20in%20hosts.png)
 
 ---
 
@@ -137,7 +137,7 @@ gobuster dir -u http://blackpearl.tcm/ \
 
 **Result:** `/navigate` (301) — redirecting to the Navigate CMS.
 
-![[did disbuster to new domain found navigate.png]]
+![Directory Enumeration on Domain](./images/did%20disbuster%20to%20new%20domain%20found%20navigate.png)
 
 ---
 
@@ -149,7 +149,7 @@ Navigating to `http://blackpearl.tcm/navigate/login.php` presented the Navigate 
 
 A search for known exploits revealed: **Navigate CMS 2.8 — Unauthenticated Remote Code Execution**.
 
-![[found login.png]]
+![Navigate CMS Login Portal](./images/found%20login.png)
 
 ---
 
@@ -188,7 +188,7 @@ whoami
 
 Initial access confirmed as `www-data` — a low-privilege web server account.
 
-![[got a shell after exploit navigate cms and bypass authenticaion.png]]
+![Shell Via Navigate CMS Exploit](./images/got%20a%20shell%20after%20exploit%20navigate%20cms%20and%20bypass%20authenticaion.png)
 
 ---
 
@@ -217,7 +217,7 @@ linpeas highlighted a critical finding in red under the SUID section:
 
 `php7.3` was owned by root and had the SUID bit set. This meant any user could execute it and it would run with root's effective UID.
 
-![[runned linpeas.png]]
+![Linpeas SUID Findings](./images/runned%20linpeas.png)
 
 ---
 
@@ -259,7 +259,7 @@ cat flag.txt
 
 Root access confirmed.
 
-![[esclated to root by running a root file us low user.png]]
+![Root Escalation via SUID](./images/esclated%20to%20root%20by%20running%20a%20root%20file%20us%20low%20user.png)
 
 ---
 

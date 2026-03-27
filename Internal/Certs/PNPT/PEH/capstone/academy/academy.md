@@ -98,7 +98,7 @@ The note was written by a user signed `jdelta` and addressed to Heath. It reveal
 
 This is a clear information disclosure finding — development notes and database credentials were left accessible on an anonymous FTP share.
 
-![[academy capstone vm.png]]
+![Academy Capstone VM](./images/academy%20capstone%20vm.png)
 
 ---
 
@@ -120,7 +120,7 @@ gobuster dir -u http://172.20.10.4 \
 |`/phpmyadmin`|301|Database management panel|
 |`/index.html`|200|Default Apache page|
 
-![[disbuter on academy.png]]
+![Directory Enumeration Results](./images/disbuter%20on%20academy.png)
 
 ---
 
@@ -171,7 +171,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 The shell landed as `www-data` — a low-privilege web server account. Privilege escalation was required.
 
-![[got a shell in academy.png]]
+![Initial Shell Access](./images/got%20a%20shell%20in%20academy.png)
 
 ---
 
@@ -194,7 +194,7 @@ chmod +x linpeas.sh
 
 linpeas ran and highlighted a critical finding in red: `/home/grimmie/backup.sh` — a script in the grimmie user's home directory, suggesting it was scheduled or executed with elevated privileges.
 
-![[run linpeas in academy vm.png]]
+![Linpeas Output](./images/run%20linpeas%20in%20academy%20vm.png)
 
 ---
 
@@ -251,7 +251,7 @@ whoami
 # grimmie
 ```
 
-![[login as grimmie admin.png]]
+![SSH Login as Grimmie](./images/login%20as%20grimmie%20admin.png)
 
 ---
 
